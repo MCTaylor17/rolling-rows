@@ -1,31 +1,32 @@
 import rowData from "./row-data";
 
-  console.log(rowData);
-const getRange = (from, to) => {
-  const segment = rowData.slice(from,to +1);
-  console.log(segment);
-  return segment;
-}
-const minWait = 1000;
-const maxWait = 5000;
-
-const getDelay = _ => {
-  const delay = ~~(Math.random() * (maxWait - minWait) + minWait);
-  console.log(delay);
-  return delay;
+// @returns "random" integer between range
+const randomIntBetween = ([min, max]) => {
+  return ~~(Math.random() * (max - min) + min);
 }
 
-const delayedReponse = (...args) => {
+// @returns promise with data after delay
+const delayedData = (delay, data) => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(getRange(...args)), getDelay())
+    setTimeout(() => resolve(data), delay)
   });
 }
 
+// @returns a slice of data
+const getRowsBetween = ([firstRow, lastRow]) => {
+  const data = rowData.slice(firstRow,lastRow +1);
+  const delay = randomIntBetween([1000, 5000]);
+  
+  return delayedData(delay, data);
+}
+
+// @returns number of rows
 const getRowsLength = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(rowData.length), getDelay())
-  });
+  const data = rowData.length;
+  const delay = randomIntBetween([1000, 2000]);
+  
+  return delayedData(delay, data);
 }
 
-export default delayedReponse;
-export { getRowsLength };
+
+export { getRowsLength, getRowsBetween };
