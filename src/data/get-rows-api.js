@@ -21,7 +21,7 @@ const getRowsBetween = ([firstRow, lastRow]) => {
 }
 
 // @returns number of rows
-const getRowsLength = () => {
+const getNumberOfRows = () => {
   const data = rowData.length;
   const delay = randomIntBetween([1000, 2000]);
   
@@ -29,4 +29,4 @@ const getRowsLength = () => {
 }
 
 
-export { getRowsLength, getRowsBetween };
+export { getNumberOfRows, getRowsBetween };
