@@ -2,16 +2,30 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import sass from 'rollup-plugin-sass';
+import commonjs from 'rollup-plugin-commonjs';
+import replace from 'rollup-plugin-replace';
 import browsersync from 'rollup-plugin-browsersync';
 
 export default {
-  input: './src/main.js',
+  input: './src/index.js',
   output: {
     file: 'bundle.js',
-    format: 'umd'
+    format: 'iife'
   },
   plugins: [
-    resolve(),
+    resolve({
+      jsnext: true,
+      browser: true
+    }),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify( 'production' )
+    }),
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        'node_modules/react/index.js': ['useState','useEffect','useRef']
+      }
+    }),
     babel({
       exclude: 'node_modules/**'
     }),
