@@ -1,0 +1,22 @@
+.magic-table {
+  background: #b0ffff;
+  background: repeating-linear-gradient(
+    to bottom,
+    white,
+    gray 1px,
+    white 1px,
+    white 25px,
+  );
+}
+
+.magic-row {
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  transition: top 2s cubic-bezier(.87,.66,0,1.27), background 2s cubic-bezier(.17,.67,.51,1.46);
+  opacity: .5;
+}
+
+.magic-column {
+  background: #deffde;
+}
