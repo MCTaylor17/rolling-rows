@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "rollup -c -w",
+    "watch": "rollup -c -w --environment BUILD:development",
     "build": "rollup -c",
     "flow": "flow"
   },

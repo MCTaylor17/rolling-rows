@@ -1,10 +1,11 @@
-// rollup.config.js
+import process from "process";
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import sass from 'rollup-plugin-sass';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import browsersync from 'rollup-plugin-browsersync';
+
 
 export default {
   input: './src/index.js',
@@ -37,6 +38,6 @@ export default {
         }
       }
     }),
-    browsersync({server: '.'})
+    (process.env.BUILD === "development" && browsersync({server: '.'}))
   ]
 };
