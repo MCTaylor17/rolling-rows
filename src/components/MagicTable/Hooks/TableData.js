@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { rowResponse$ } from "../api";
 
-const RowData = () => {
-  const [rowData, setRowData] = useState([]);
+const TableData = () => {
+  const [tableData, setTableData] = useState([]);
   
   useEffect(() => {
     const sub = rowResponse$.subscribe(data => {
-      setRowData(data);
+      setTableData(data);
     });
     return () => sub.unsubscribe();
   },[]);
 
-  return rowData;
+  return tableData;
 }
 
-export default RowData;
+export default TableData;

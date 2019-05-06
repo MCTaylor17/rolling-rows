@@ -1,22 +1,53 @@
 .magic-table {
-  background: #b0ffff;
+  position: relative;
+}
+
+.magic-tbody {
+  position: relative;
+  height: calc(var(--rowHeight) * var(--numberOfRows));
   background: repeating-linear-gradient(
     to bottom,
     white,
     gray 1px,
     white 1px,
-    white 25px,
+    white var(--rowHeight),
   );
 }
 
 .magic-row {
-  position: absolute;
+  height: var(--rowHeight);
   width: 100%;
-  border-bottom: 1px solid gray;
-  transition: top 2s cubic-bezier(.87,.66,0,1.27), background 2s cubic-bezier(.17,.67,.51,1.46);
-  opacity: .5;
+  
+  .magic-tbody & {
+    --maxTime: 4s;
+    --percent: calc((var(--id) + 1)/var(--numberOfRows));
+    --time: calc(var(--maxTime) * (var(--percent)));
+    position: absolute;
+    top: calc(var(--id) * var(--rowHeight) + 1px);
+    z-index: var(--id);
+    background: var(--primaryColor);
+    border-bottom: 1px solid gray;
+    opacity: .5;
+    transition: top var(--time) cubic-bezier(.87,.66,0,1.27), background var(--time) cubic-bezier(.87,.66,0,1.27);
+  }
+  
+  .magic-thead & {
+    border: 3px solid black;
+    background: gray;
+    font-weight: bold;
+    color: white;
+  }
+
 }
 
 .magic-column {
-  background: #deffde;
+  display: inline-block;
+  width: var(--width);
+  text-align: var(--align);
+  border-right: 1px solid gray;
+  height: 100%;
+  
+  &:last-child {
+    border-right: none;
+  }
 }

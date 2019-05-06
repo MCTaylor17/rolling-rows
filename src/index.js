@@ -10,7 +10,7 @@ import MagicTable from "@/src/components/MagicTable";
 const App = () => {
   return (
     <div className="App">
-      <MagicTable />
+      <MagicTable rowHeight="50" />
     </div>
   );
 }
