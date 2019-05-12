@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import * as hooks from "./Hooks";
 import * as handlers from "./Handlers";
 import MagesticalTable from "./MagesticalTable";
-import magicPalette from "./styles/magicPalette.json";
+import magicPalette from "./styles/magicPalette";
 
 const MagicTable = props => {
   const [columnLayout, setColumnLayout] = useState([
