@@ -1,48 +1,32 @@
 import { useState, useEffect } from "react";
 
   
-const WhichRows = (numberOfRows, topRow, maxVisibleRows) => {
+const WhichRows = (numberOfRows, middleRow, displayLength) => {
   const [whichRows, setWhichRows] = useState([]);
   
-  const getRows = (theStart, length) => {
-    const newRows = [];
-    
-    for(let i = 0; i < length; i++) {
-      const id = theStart + i;
-      const whichSlot = id % length;
-      
-      newRows[whichSlot] = id;
+  useEffect(() => {
+    const maxLength = Math.min(numberOfRows, displayLength);
+    let start = middleRow - Math.floor(maxLength/2);
+    let end = start + maxLength;
+
+    if(start < 0) {
+      end += start * -1;
+      start = 0;
+    } else if (end > numberOfRows) {
+      start -= end - numberOfRows;
+      end = numberOfRows;
+    }
+
+    const rows = [];
+    for(let rowID = start; rowID < end; rowID++) {
+      rows[rowID % maxLength] = rowID;
     }
     
-    return newRows;
-  };
-  
-  useEffect(() => {
-    const arraySize = Math.min(numberOfRows,maxVisibleRows);
-    const theEnd = Math.max(numberOfRows - arraySize,0);
-    const theStart = Math.max(Math.min(topRow, theEnd),0);
-    const length = Math.min(arraySize, theEnd);  
+    setWhichRows(rows);
     
-    setWhichRows(getRows(theStart, length));
-    
-  },[numberOfRows, topRow, maxVisibleRows]);
+  },[numberOfRows, middleRow, displayLength]);
 
   return whichRows;
 }
 
 export default WhichRows;
-
-/*
-  const thisRowData = rowData[id] || [];
-  const getColumns = (thisRowData) => {
-    return columnLayout.map(layout => {
-      const column = {
-        text: thisRowData[layout.label] || "",
-        ...layout
-      }
-      return column;
-    });
-  };
-  const columns = getColumns(thisRowData)
-
-*/

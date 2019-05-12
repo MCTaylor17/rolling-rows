@@ -28,10 +28,10 @@ const MagicTable = props => {
   const numberOfRows   = hooks.NumberOfRows();
   const tableTop       = hooks.TableTop(topRef);
   const middleRow      = hooks.MiddleRow(tableTop, rowHeight, numberOfRows, gutters);
-  const whichRows2     = hooks.WhichRows2(numberOfRows, middleRow, displayLength);
+  const whichRows     = hooks.WhichRows(numberOfRows, middleRow, displayLength);
   const headerRow      = hooks.HeaderRow(columnLayout);
   const tableData      = hooks.TableData();
-  const magicRows      = hooks.MagicRows(columnLayout, whichRows2, tableData, activeColumn);
+  const magicRows      = hooks.MagicRows(columnLayout, whichRows, tableData, activeColumn);
   const columnWidths   = hooks.SerializeColumnWidths(columnLayout);
   const paletteOptions = Object.keys(magicPalette);
   const activePalette  = magicPalette[paletteChoice];
