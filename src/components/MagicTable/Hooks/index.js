@@ -1,5 +1,4 @@
 export { default as SerializeColumnWidths } from "./SerializeColumnWidths";
-export { default as ScrolledDown } from "./ScrolledDown";
 export { default as NumberOfRows } from "./NumberOfRows";
 export { default as WhichRows } from "./WhichRows";
 export { default as TableData } from "./TableData";
