@@ -1,5 +1,5 @@
 import { fromEvent, merge } from "rxjs";
-import { tap, map, pairwise, share } from "rxjs/operators";
+import { tap, map, pairwise, share, distinctUntilChanged } from "rxjs/operators";
 
 import { onLoad$, onScroll$, onResize$ } from "./nativeEvents";
 
@@ -33,8 +33,14 @@ const winScrollDelta$ = winScrollTop$.pipe(
   })
 );
 
-const winScrolledDown$ = winScrollDelta$.pipe(map(delta => delta >= 0));
-const winScrolledUp$ = winScrolledDown$.pipe(map(down => !down));
+const winScrolledDown$ = winScrollDelta$.pipe(
+  map(delta => delta >= 0), 
+  distinctUntilChanged()
+);
+const winScrolledUp$ = winScrolledDown$.pipe(
+  map(down => !down), 
+  distinctUntilChanged()
+);
 
 export { 
   winScrollTop$,

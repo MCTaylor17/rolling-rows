@@ -1,0 +1,97 @@
+$revealTime: .4s;
+
+%sr-only {
+  border: 0; 
+  clip: rect(0 0 0 0); 
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px; 
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.magic-controls {
+  position: fixed;
+  right: 0;
+  bottom: 10%;
+  z-index: 2147483647;
+  transform: translateX(calc(100% - 65px));
+  transition: transform .7s ease;
+  padding: 15px;
+  padding-right: 0px;
+  border-radius: 10px 0 0 10px;
+  background: white;
+  box-shadow: -3px 3px 5px gray;
+  
+  &:hover {
+    transform: translateX(calc(0% + 10px));
+  }
+}
+
+// Basic Styles
+.control-group {
+  border-radius: 5px;
+  padding: 6px;
+  padding-right: 20px;
+  color: gray;
+  transition: all $revealTime ease;
+
+  &:hover {
+    color: #333;
+    background: #ecffff;
+    box-shadow: -1px 1px 3px gray;
+  }
+}
+
+
+.control-group {
+  // Hide a11y inputs/labels
+  .hidden {
+    @extend %sr-only;
+  }
+
+  // Reveal control on hover
+  .reveal {
+    opacity: 0;
+    transition: opacity $revealTime ease;
+  }
+  &:hover .reveal {
+    opacity: 1;
+  }
+  
+  // Icon styles
+  .icon {
+    &:before {
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      width: 20px;
+      margin-right: 12px;
+      font-size: 19px;
+      text-align: center;
+    }
+  }
+  
+  // ocd
+  input[type="range"] {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.palette-choice {
+  display: inline-block;
+  padding: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  &.checked {
+    background: #00daff;
+  }
+  &:hover {
+    background: #00daff;
+  }
+}

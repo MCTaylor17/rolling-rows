@@ -1,62 +1,70 @@
 import React, { useState, useEffect, useRef } from "react";
+
+// Magic Hooks
 import * as hooks from "./Hooks";
+import * as handlers from "./Handlers";
 import MagesticalTable from "./MagesticalTable";
 import magicPalette from "./styles/magicPalette.json";
 
 const MagicTable = props => {
-  const tableRef = useRef(null);
-
-  const [rowHeight, setRowHeight] = useState(25);
-  const onRowResize = height => {
-    setRowHeight(height);
-  }
-  
   const [columnLayout, setColumnLayout] = useState([
-    { label: "A", width: "25%", align: "right" },
-    { label: "C", width: "50%", align: "center" },
-    { label: "E", width: "25%", align: "left" }
+    { label: "A", width: "22%", align: "right" },
+    { label: "C", width: "12%", align: "center" },
+    { label: "E", width: "17%", align: "left" },
+    { label: "B", width: "17%", align: "right" },
+    { label: "F", width: "17%", align: "center" },
+    { label: "G", width: "15%", align: "left" },
   ]);
   
-  const paletteOptions = Object.keys(magicPalette);
-  const [palette, setPalette] = useState(magicPalette.unicorn);
-  
-  const onPaletteChange = option => {
-    setPalette(magicPalette[option]);
-  }
-  
-  const handlers = {
-    onRowResize,
-    onPaletteChange,
-    paletteOptions,
-  }
-  
-  // Hooks
-  const tableData      = hooks.TableData();
+  const [activeColumn, onCellEnter, onTableLeave] = handlers.ActiveColumn();
+  const [transitionTime, onTransitionTime] = handlers.TransitionTime();
+  const [paletteChoice, onPaletteChoice] = handlers.PaletteChoice("unicorn");
+  const [displayLength, onDisplayLength] = handlers.DisplayLength();
+  const [borderRadius, onBorderRadius] = handlers.BorderRadius();
+  const [rowHeight, onRowHeight] = handlers.RowHeight();
+  const [gutters, onGutters] = handlers.Gutters();
+  const scrollRef      = useRef(null);
+  const topRef         = useRef(null);
   const numberOfRows   = hooks.NumberOfRows();
-  const tableHeight    = hooks.TableHeight(rowHeight, numberOfRows);
-  const tableTop       = hooks.TableTop(tableRef);
-  const maxVisibleRows = hooks.MaxVisibleRows(rowHeight);  
-  const topRow         = hooks.TopRow(tableTop, rowHeight, numberOfRows, maxVisibleRows);
-  const whichRows      = hooks.WhichRows(numberOfRows, topRow, maxVisibleRows);
-  
-  const magicRows      = hooks.MagicRows(columnLayout, whichRows, tableData);
+  const tableTop       = hooks.TableTop(topRef);
+  const middleRow      = hooks.MiddleRow(tableTop, rowHeight, numberOfRows, gutters);
+  const whichRows2     = hooks.WhichRows2(numberOfRows, middleRow, displayLength);
   const headerRow      = hooks.HeaderRow(columnLayout);
-  console.log(magicRows, headerRow);
-  
-  
-  const data = {
-    rowHeight,
+  const tableData      = hooks.TableData();
+  const magicRows      = hooks.MagicRows(columnLayout, whichRows2, tableData, activeColumn);
+  const columnWidths   = hooks.SerializeColumnWidths(columnLayout);
+  const paletteOptions = Object.keys(magicPalette);
+  const activePalette  = magicPalette[paletteChoice];
+
+  const properties = {
+    onTransitionTime,
+    onDisplayLength,
+    onPaletteChoice,
+    onBorderRadius,
+    transitionTime,
+    paletteOptions,
+    displayLength,
+    paletteChoice,
+    activePalette,
+    columnWidths,
+    borderRadius,
     numberOfRows,
+    onTableLeave,
+    onRowHeight,
+    onCellEnter,
+    onGutters,
+    rowHeight,
+    rowHeight,
+    headerRow,    
     magicRows,
-    headerRow,
-    tableRef,
-    palette,
-    handlers
+    scrollRef,
+    gutters,
+    topRef,
   }
   
   return (
     <>
-      <MagesticalTable {...data} />
+      <MagesticalTable {...properties} />
     </>
   );
 };

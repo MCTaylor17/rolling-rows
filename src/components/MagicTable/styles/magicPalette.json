@@ -1,4 +1,12 @@
 export default {
+  box: [
+    "#fa6b34",
+    "#fa6b34",
+    "#fa6b34",
+    "white",
+    "white",
+    "white",
+  ],
   unicorn: [
     "white",
     "white",
@@ -20,18 +28,15 @@ export default {
     "#986abb",
     "#c094d3",
   ],
-  candyCane: [
-    "#ff7a7a",
-    "#ff7a7a",
-    "#ff7a7a",
+  wave: [
+    "#1f3e9f",
+    "#1d45c1",
+    "#214fdc",
+    "#265bfe",
+    "#3d6cfe",
+    "#82a0fe",
+    "#b0c3fe",
     "white",
-    "white",
-    "white",
-    "#73a673",
-    "white",
-    "#ff7a7a",
-    "white",
-    "#73a673",
     "white",
     "white",
     "white",
@@ -48,9 +53,5 @@ export default {
     "green",
     "black",
     "black",
-  ],
-  hamburgler: [
-    "black",
-    "white"
   ]
 }

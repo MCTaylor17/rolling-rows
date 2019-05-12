@@ -1,5 +1,23 @@
+$headerCellColor: #4668dd;
+$innerBorders: 1px solid gray;
+$activeBorders: 1px solid black;
+$outerBorders: 3px solid black;
+
+%fontAwesome {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
 .magic-table {
   position: relative;
+  border: $outerBorders;
 }
 
 .magic-tbody {
@@ -12,42 +30,68 @@
     white 1px,
     white var(--rowHeight),
   );
+  @supports(background: paint(chicklet)) {
+    background: paint(chicklet);
+  };
 }
 
 .magic-row {
-  height: var(--rowHeight);
+  --percent: calc((var(--id) + 1)/var(--numberOfRows));
+  --dynamicTime: calc(var(--transitionTime) * var(--percent));
   width: 100%;
-  
-  .magic-tbody & {
-    --maxTime: 4s;
-    --percent: calc((var(--id) + 1)/var(--numberOfRows));
-    --time: calc(var(--maxTime) * (var(--percent)));
-    position: absolute;
-    top: calc(var(--id) * var(--rowHeight) + 1px);
-    z-index: var(--id);
-    background: var(--primaryColor);
-    border-bottom: 1px solid gray;
-    opacity: .5;
-    transition: top var(--time) cubic-bezier(.87,.66,0,1.27), background var(--time) cubic-bezier(.87,.66,0,1.27);
-  }
+  height: var(--rowHeight);
   
   .magic-thead & {
-    border: 3px solid black;
-    background: gray;
-    font-weight: bold;
-    color: white;
+    border-bottom: $outerBorders;
   }
-
+  
+  .magic-tbody & {
+    position: absolute;
+    top: calc(var(--id) * (var(--rowHeight) + var(--gutters)) + var(--gutters)/2);
+    z-index: var(--id);
+    transition: top var(--dynamicTime) cubic-bezier(.87,.66,0,1.27);
+  }
+  
 }
 
 .magic-column {
+  position: relative;
   display: inline-block;
-  width: var(--width);
-  text-align: var(--align);
-  border-right: 1px solid gray;
   height: 100%;
+  padding: 1px 1%;
+  text-align: var(--align);
   
-  &:last-child {
-    border-right: none;
+  .magic-thead & {
+    width: var(--width);
+    border-radius: none;
+    background: $headerCellColor;
+    font-weight: bold;
+    color: white;
   }
+  
+  .magic-tbody & {
+    width: calc(var(--width) - var(--gutters));
+    border: $activeBorders;
+    border-radius: var(--borderRadius);
+    background: var(--primaryColor);
+    transition: background calc(var(--dynamicTime) * 3) cubic-bezier(.87,.66,0,1.27);
+    
+    margin: 0 calc(var(--gutters)/2);
+    &:last-child {
+      margin-right: none;
+    }
+  }
+}
+
+// Trust me, I know what I'm doing.
+.magic-row:hover .magic-column:not(:hover):after,
+.magic-column.active:not(:hover):after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(157, 157, 157, 0.46);
+  border-radius: var(--borderRadius);
 }

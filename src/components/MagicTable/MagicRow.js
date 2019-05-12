@@ -6,9 +6,10 @@ const MagicRow = props => {
   const getStyleVariables = rowID => {
     return {
       "--id": rowID,
-      "--primaryColor": props.palette[rowID % props.palette.length]
+      "--primaryColor": props.activePalette[rowID % props.activePalette.length]
     };
   }
+  
     
   return (
     <>

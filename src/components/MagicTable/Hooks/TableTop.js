@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { onResize$, onLoad$ } from "@/src/bus/window";
 import { merge } from "rxjs";
 
-const TableTop = (tableRef) => {
+const TableTop = (topRef) => {
   const currentTop = () => {
-    return tableRef.current.getBoundingClientRect().top + document.documentElement.scrollTop;
+    return topRef.current.getBoundingClientRect().top + document.documentElement.scrollTop;
   }
   
   const [tableTop, setTableTop] = useState(0);
