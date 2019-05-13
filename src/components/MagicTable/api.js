@@ -2,9 +2,7 @@ import { of, from } from "rxjs";
 import { map, mergeMap, startWith } from "rxjs/operators";
 import { getRowsBetween, getNumberOfRows } from "@/src/data/get-rows-api";
 
-const numberOfRows$ = from(getNumberOfRows()).pipe(
-  startWith(0)
-)
+const numberOfRows$ = from(getNumberOfRows());
 
 // Assume all rows for now
 const rowRequest$ = numberOfRows$.pipe(
