@@ -22,7 +22,7 @@ $outerBorders: 3px solid black;
 
 .magic-tbody {
   position: relative;
-  height: calc(var(--rowHeight) * var(--numberOfRows));
+  height: calc((var(--rowHeight) + var(--gutters)) * var(--numberOfRows));
   background: repeating-linear-gradient(
     to bottom,
     white,
@@ -95,3 +95,5 @@ $outerBorders: 3px solid black;
   background: rgba(157, 157, 157, 0.46);
   border-radius: var(--borderRadius);
 }
+
+
