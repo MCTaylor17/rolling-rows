@@ -5,6 +5,7 @@ import sass from 'rollup-plugin-sass';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import browsersync from 'rollup-plugin-browsersync';
+import md from "rollup-plugin-md";
 
 
 export default {
@@ -14,6 +15,15 @@ export default {
     format: 'iife'
   },
   plugins: [
+    md({
+      marked: {       
+        gfm: true,
+        tables: false,
+        breaks: true,
+        pedantic: false,
+        sanitize: false,
+      }
+    }),
     resolve({
       jsnext: true,
       browser: true
