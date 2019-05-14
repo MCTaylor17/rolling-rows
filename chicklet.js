@@ -21,7 +21,7 @@ class Chicklet {
     const columns = this.parseColumns(columnWidths, geom.width, gutters);
     
     columns.map(column => {
-      this.fakeCell(ctx, column.x, 0, column.pxWidth, rowHeight - 1, borderRadius);
+      this.fakeCell(ctx, column.x, gutters/2, column.pxWidth, rowHeight - 1, borderRadius);
     });    
   };
   
