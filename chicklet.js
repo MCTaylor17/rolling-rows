@@ -10,7 +10,6 @@ class Chicklet {
   };
   
   paint(ctx, geom, properties) {
-    return;
     const x = 0;
     const y = 0;
     const width = 200;
@@ -21,13 +20,9 @@ class Chicklet {
     const columnWidths = properties.get("--columnWidths").toString().split("|");
     const columns = this.parseColumns(columnWidths, geom.width, gutters);
     
-    for(let i = 0; i < numberOfRows; i++) {
-      const top = i * (rowHeight + gutters) + gutters/2;
-      columns.map(column => {
-        this.fakeCell(ctx, column.x, top, column.pxWidth, rowHeight, borderRadius);
-      });
-    }
-
+    columns.map(column => {
+      this.fakeCell(ctx, column.x, 0, column.pxWidth, rowHeight - 1, borderRadius);
+    });    
   };
   
   parseColumns(columnWidths, fullWidth, gutters) {

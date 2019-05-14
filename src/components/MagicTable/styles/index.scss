@@ -1,19 +1,8 @@
 $headerCellColor: #4668dd;
+$colorDefault: #333;
 $innerBorders: 1px solid gray;
 $activeBorders: 1px solid black;
 $outerBorders: 3px solid black;
-
-%fontAwesome {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
-}
 
 .magic-table {
   position: relative;
@@ -21,17 +10,23 @@ $outerBorders: 3px solid black;
 }
 
 .magic-tbody {
+  --totalRowHeight: calc(var(--rowHeight) + var(--gutters));
   position: relative;
-  height: calc((var(--rowHeight) + var(--gutters)) * var(--numberOfRows));
-  background: repeating-linear-gradient(
-    to bottom,
-    white,
-    gray 1px,
-    white 1px,
-    white var(--rowHeight),
-  );
+  height: calc(var(--totalRowHeight) * var(--numberOfRows));
+  color: $colorDefault;
+  
+  .houdini-warning {
+    display: block;
+  }
+    
   @supports(background: paint(chicklet)) {
+    .houdini-warning {
+      display: none;
+    }
+    
     background: paint(chicklet);
+    background-size: 100% var(--totalRowHeight);
+    background-repeat: repeat-y;
   };
 }
 
