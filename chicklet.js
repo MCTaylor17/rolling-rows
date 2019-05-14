@@ -10,6 +10,7 @@ class Chicklet {
   };
   
   paint(ctx, geom, properties) {
+    return;
     const x = 0;
     const y = 0;
     const width = 200;
@@ -65,12 +66,16 @@ class Chicklet {
 
 
   fakeCell(ctx, left, top, width, height, radius) {
-    if (radius > width / 2) radius = width / 2;
-    if (radius > height / 2) radius = height / 2;
+    // Note: Math.max is necessary to prevent error in arcTo method
+    // Negative widths can occur when large gutters and narrow displays
+    if (radius > width / 2) radius = Math.max(0, width / 2);
+    if (radius > height / 2) radius = Math.max(0, height / 2);
     
     const right = left + width;
     const bottom = top + height;
     
+    ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
     ctx.beginPath();
     
     // Top Left
@@ -92,11 +97,9 @@ class Chicklet {
     // Top Left
     ctx.arcTo(left, top, left + radius, top, radius);
     
-    ctx.fillStyle = "black";
-    ctx.strokeStyle = "gray";
     ctx.closePath();
-    //ctx.fill();
     ctx.stroke();
+    ctx.fill();
 
     return ctx;
   }
