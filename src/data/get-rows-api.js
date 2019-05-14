@@ -14,18 +14,23 @@ const delayedData = (delay, data) => {
 
 // @returns a slice of data
 const getRowsBetween = ([firstRow, lastRow]) => {
-  const data = rowData.slice(firstRow,lastRow +1);
-  const delay = randomIntBetween([1000, 5000]);
+  let fakeRowData = rowData;
+  while(fakeRowData.length < lastRow - firstRow) {
+    fakeRowData = fakeRowData.concat(fakeRowData);
+  }
+  const data = fakeRowData.slice(firstRow,lastRow +1);
+  const delay = randomIntBetween([100, 500]);
   
   return delayedData(delay, data);
 }
 
 // @returns number of rows
 const getNumberOfRows = () => {
-  const data = rowData.length;
-  const delay = randomIntBetween([1000, 2000]);
+  const length = rowData.length;
+  const fakeLength = 10000;
+  const delay = randomIntBetween([100, 200]);
   
-  return delayedData(delay, data);
+  return delayedData(delay, fakeLength);
 }
 
 
