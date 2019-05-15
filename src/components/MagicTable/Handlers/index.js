@@ -34,12 +34,12 @@ const Gutters = () => {
   return [gutters, onGutters];
 };
 
-const PaletteChoice = (defaultChoice) => {
-  const [paletteChoice, setPaletteChoice] = useState(defaultChoice);
-  const onPaletteChoice = event => {
-    setPaletteChoice(event.target.value);
+const ThemeChoice = (defaultChoice) => {
+  const [themeChoice, setThemeChoice] = useState(defaultChoice);
+  const onThemeChoice = event => {
+    setThemeChoice(event.target.value);
   };
-  return [paletteChoice, onPaletteChoice]
+  return [themeChoice, onThemeChoice]
 };
   
 const RowHeight = () => {
@@ -63,7 +63,7 @@ export {
   BorderRadius,
   DisplayLength,
   Gutters,
-  PaletteChoice,
+  ThemeChoice,
   RowHeight,
   TransitionTime,
 }

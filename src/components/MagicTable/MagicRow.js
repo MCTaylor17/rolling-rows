@@ -2,11 +2,11 @@ import React from "react";
 import MagicCol from "./MagicCol";
 
 const MagicRow = props => {
-
+  const rowColors = props.themes[props.themeChoice].colors;
   const getStyleVariables = rowID => {
     return {
       "--id": rowID,
-      "--primaryColor": props.activePalette[rowID % props.activePalette.length]
+      "--primaryColor": rowColors[rowID % rowColors.length]
     };
   }
   

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import * as hooks from "./Hooks";
 import * as handlers from "./Handlers";
 import MagesticalTable from "./MagesticalTable";
-import magicPalette from "./styles/magicPalette";
+import themes from "./styles/themes";
 
 
 const MagicTable = props => {
@@ -19,7 +19,7 @@ const MagicTable = props => {
   
   const [activeColumn, onCellEnter, onTableLeave] = handlers.ActiveColumn();
   const [transitionTime, onTransitionTime] = handlers.TransitionTime();
-  const [paletteChoice, onPaletteChoice] = handlers.PaletteChoice("unicorn");
+  const [themeChoice, onThemeChoice] = handlers.ThemeChoice("sheets");
   const [displayLength, onDisplayLength] = handlers.DisplayLength();
   const [borderRadius, onBorderRadius] = handlers.BorderRadius();
   const [rowHeight, onRowHeight] = handlers.RowHeight();
@@ -35,23 +35,19 @@ const MagicTable = props => {
   const tableData      = hooks.TableData();
   const magicRows      = hooks.MagicRows(columnLayout, whichRows, tableData, activeColumn);
   const columnWidths   = hooks.SerializeColumnWidths(columnLayout);
-  const paletteOptions = Object.keys(magicPalette);
-  const activePalette  = magicPalette[paletteChoice];
 
   const properties = {
     onTransitionTime,
     onDisplayLength,
-    onPaletteChoice,
+    onThemeChoice,
     onBorderRadius,
     transitionTime,
-    paletteOptions,
     displayLength,
-    paletteChoice,
-    activePalette,
     columnWidths,
     borderRadius,
     numberOfRows,
     onTableLeave,
+    themeChoice,
     furthestRow,
     onRowHeight,
     onCellEnter,
@@ -62,6 +58,7 @@ const MagicTable = props => {
     magicRows,
     scrollRef,
     gutters,
+    themes,
     topRef,
   }
   
