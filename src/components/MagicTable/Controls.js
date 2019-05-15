@@ -102,8 +102,8 @@ const MagicControls = props => {
             value={props.transitionTime} 
             type="range" 
             min="0" 
-            max="5" 
-            step="0.5"/>
+            max="3.33333333" 
+            step="0.3333333"/>
         </div>
         
         

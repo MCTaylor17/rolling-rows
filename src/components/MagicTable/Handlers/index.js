@@ -53,7 +53,7 @@ const RowHeight = () => {
 const TransitionTime = () => {
   const [transitionTime, setTransitionTime] = useState(0);
   const onTransitionTime = event => {
-    setTransitionTime(parseInt(event.target.value));
+    setTransitionTime(parseFloat(event.target.value));
   };
   return [transitionTime, onTransitionTime];
 };
