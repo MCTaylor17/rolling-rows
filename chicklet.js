@@ -69,7 +69,7 @@ class Chicklet {
     const right = left + width;
     const bottom = top + height;
     
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.21)";
     ctx.strokeStyle = "black";
     ctx.beginPath();
     
