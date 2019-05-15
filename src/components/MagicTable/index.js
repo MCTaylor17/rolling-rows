@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 // Magic Hooks
 import * as hooks from "./Hooks";
 import * as handlers from "./Handlers";
-import MagesticalTable from "./MagesticalTable";
+import Table from "./Table";
 import themes from "./styles/themes";
 
 
@@ -64,7 +64,7 @@ const MagicTable = props => {
   
   return (
     <>
-      <MagesticalTable {...properties} />
+      <Table {...properties} />
     </>
   );
 };

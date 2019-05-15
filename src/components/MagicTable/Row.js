@@ -1,7 +1,7 @@
 import React from "react";
-import MagicCol from "./MagicCol";
+import Column from "./Column";
 
-const MagicRow = props => {
+const Row = props => {
   const rowColors = props.themes[props.themeChoice].colors;
   const getStyleVariables = rowID => {
     return {
@@ -15,11 +15,11 @@ const MagicRow = props => {
     <>
       <div className="magic-row" style={getStyleVariables(props.rowID)}>
         {props.columns.map((column,index) => (
-          <MagicCol key={index} {...column} {...props}/>
+          <Column key={index} {...column} {...props}/>
         ))}
       </div>
     </>
   );
 };
 
-export default MagicRow;
+export default Row;

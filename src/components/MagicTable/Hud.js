@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/hud.scss";
 
-const MagicHud = props => {
+const Hud = props => {
 
   const styles = {
     "--furthestRow": props.furthestRow
@@ -13,4 +13,4 @@ const MagicHud = props => {
   );
 };
 
-export default MagicHud;
+export default Hud;
