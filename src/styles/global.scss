@@ -11,6 +11,13 @@
   margin: 0;
 }
 
+/////////////
+//Scrollbar//
+/////////////
+::-webkit-scrollbar {
+  display: none;
+}
+
 //////////////
 //Typography//
 //////////////

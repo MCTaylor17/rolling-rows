@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MagicTable from "@/src/components/MagicTable";
 import * as content from "./content";
+import "./lock-exploits";
 
 const fragments = document.querySelectorAll('.fragment');
 
