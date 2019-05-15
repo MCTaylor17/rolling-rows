@@ -1,6 +1,7 @@
 import React from "react";
 import MagicRow from "./MagicRow";
 import MagicControls from "./MagicControls";
+import MagicHud from "./MagicHud";
 import "./styles/index.scss";
 
 
@@ -25,6 +26,7 @@ const MagesticalTable = props => {
         </div>
         
         <div onMouseLeave={props.onTableLeave} className="magic-tbody" ref={props.topRef}>
+          <MagicHud {...props} />
           
           {props.magicRows.map((row, index) => (
             <MagicRow key={index} {...row} {...props} />

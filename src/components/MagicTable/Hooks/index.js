@@ -6,3 +6,4 @@ export { default as MiddleRow } from "./MiddleRow";
 export { default as MagicRows } from "./MagicRows";
 export { default as HeaderRow } from "./HeaderRow";
 export { default as TableTop } from "./TableTop";
+export { default as FurthestRow } from "./FurthestRow";

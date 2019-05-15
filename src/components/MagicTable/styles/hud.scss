@@ -1,0 +1,13 @@
+.furthest-row {
+  --totalRowHeight: calc(var(--rowHeight) + var(--gutters));
+  position: absolute;
+  z-index: 2147483647;
+  top: calc(var(--furthestRow) * var(--totalRowHeight) + var(--totalRowHeight)/2);
+  left: -2%;
+  padding: 13px;
+  transform: translateY(-50%);
+  color: white;
+  font-weight: bold;
+  background: #25da4d;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
+}

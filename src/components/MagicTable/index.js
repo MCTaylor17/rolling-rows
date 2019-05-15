@@ -6,6 +6,7 @@ import * as handlers from "./Handlers";
 import MagesticalTable from "./MagesticalTable";
 import magicPalette from "./styles/magicPalette";
 
+
 const MagicTable = props => {
   const [columnLayout, setColumnLayout] = useState([
     { label: "A", width: "22%", align: "right" },
@@ -28,7 +29,8 @@ const MagicTable = props => {
   const numberOfRows   = hooks.NumberOfRows();
   const tableTop       = hooks.TableTop(topRef);
   const middleRow      = hooks.MiddleRow(tableTop, rowHeight, numberOfRows, gutters);
-  const whichRows     = hooks.WhichRows(numberOfRows, middleRow, displayLength);
+  const furthestRow    = hooks.FurthestRow(middleRow);
+  const whichRows      = hooks.WhichRows(numberOfRows, middleRow, displayLength);
   const headerRow      = hooks.HeaderRow(columnLayout);
   const tableData      = hooks.TableData();
   const magicRows      = hooks.MagicRows(columnLayout, whichRows, tableData, activeColumn);
@@ -50,6 +52,7 @@ const MagicTable = props => {
     borderRadius,
     numberOfRows,
     onTableLeave,
+    furthestRow,
     onRowHeight,
     onCellEnter,
     onGutters,

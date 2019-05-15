@@ -19,7 +19,7 @@ const BorderRadius = () => {
   return [borderRadius, onBorderRadius];
 };
 const DisplayLength = () => {
-  const [displayLength, setDisplayLength] = useState(9);
+  const [displayLength, setDisplayLength] = useState(50);
   const onDisplayLength = event => {
     setDisplayLength(parseInt(event.target.value));
   };
@@ -43,7 +43,7 @@ const PaletteChoice = (defaultChoice) => {
 };
   
 const RowHeight = () => {
-  const [rowHeight, setRowHeight] = useState(25);
+  const [rowHeight, setRowHeight] = useState(50);
   const onRowHeight = event => {
     setRowHeight(parseInt(event.target.value));
   };
@@ -51,7 +51,7 @@ const RowHeight = () => {
 };
 
 const TransitionTime = () => {
-  const [transitionTime, setTransitionTime] = useState(5);
+  const [transitionTime, setTransitionTime] = useState(0);
   const onTransitionTime = event => {
     setTransitionTime(parseInt(event.target.value));
   };

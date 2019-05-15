@@ -31,8 +31,6 @@ $outerBorders: 3px solid black;
 }
 
 .magic-row {
-  --percent: calc((var(--id) + 1)/var(--numberOfRows));
-  --dynamicTime: calc(var(--transitionTime) * var(--percent));
   width: 100%;
   height: var(--rowHeight);
   
@@ -44,7 +42,7 @@ $outerBorders: 3px solid black;
     position: absolute;
     top: calc(var(--id) * (var(--rowHeight) + var(--gutters)) + var(--gutters)/2);
     z-index: var(--id);
-    transition: top var(--dynamicTime) cubic-bezier(.87,.66,0,1.27);
+    transition: top var(--transitionTime) cubic-bezier(.87,.66,0,1.27);
   }
   
 }
@@ -69,7 +67,7 @@ $outerBorders: 3px solid black;
     border: $activeBorders;
     border-radius: var(--borderRadius);
     background: var(--primaryColor);
-    transition: background calc(var(--dynamicTime) * 3) cubic-bezier(.87,.66,0,1.27);
+    transition: background calc(var(--transitionTime) * 3) cubic-bezier(.87,.66,0,1.27);
     
     margin: 0 calc(var(--gutters)/2);
     &:last-child {
