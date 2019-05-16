@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Mike Taylor">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Magic Table</title>
-  
+
   <link rel="stylesheet" href="bundle.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
-<body class="background-repeat">
- <div class="background-top"></div>
- <div class="wrapper">
-  <header class="the-magic-table">
-    <div class="viewport-spacer">
-     <h1><span>The</span><br/><span>Magic</span><br/><span>Table</span></h1>
+
+<body>
+  <div class="background-wrapper">
+    <div class="background-mask"></div>
+    <div class="background-top">
+      <button id="coffee"></button>
+      <button id="cookies"></button>
     </div>
-  </header>
-  
-  <blockquote class="fail-better">
-     <div class="fragment" data-name="Inspiration"></div>
-  </blockquote>
-   
-   <section class="table-wrapper">
-     <div id="root"></div>
-   </section>
-   
- </div>
- 
- <script src="bundle.js"></script>
- <script>
-   CSS.paintWorklet.addModule('./chicklet.js');
- </script>
+    <div class="background-repeat"></div>
+    <div class="wrapper">
+      <header class="the-magic-table">
+        <h1><span>The</span><wbr /><span>Magic</span><wbr /><span>Table</span></h1>
+      </header>
+
+      <blockquote class="fail-better">
+        <div class="fragment" data-name="Inspiration"></div>
+      </blockquote>
+
+      <section class="table-wrapper">
+        <div id="root"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="bundle.js"></script>
+  <script>
+    CSS.paintWorklet.addModule('./chicklet.js');
+  </script>
 </body>
+
 </html>
