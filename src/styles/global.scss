@@ -71,6 +71,39 @@ p,li {
   }
 }
 
+%console-type-1 {
+  font-family: monospace;
+  color: orange;
+  font-size: 24px;
+}
+
+$screenWidth: 80vw;
+$bezelWidth: 5vw;
+$aspectRatio: 4/3;
+#computer {
+  @extend %console-type-1;
+  position: fixed;
+  bottom: - 1vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: $screenWidth + $bezelWidth * 2;
+  height: $screenWidth / $aspectRatio + $bezelWidth * 2;
+  #bezel {
+    border-radius: 5%;
+    width: 100%;
+    height: 100%;
+    background: beige;
+    padding: $bezelWidth;
+  }
+  #screen {
+    width: 100%;
+    height: 100%;
+    background: #333;
+    border-radius: 10%;
+    padding: 10%;
+  }
+}
+
 ///////////////
 //Backgrounds//
 ///////////////
