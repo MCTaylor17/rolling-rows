@@ -1,22 +1,13 @@
-//////////////////
-//Content Blocks//
-//////////////////
+//////////
+//Header//
+//////////
 @import "../variables";
-
-.wrapper {
-  position: relative;
-}
-
-.table-wrapper {
-  margin: 20px 5%;
-  //height: 50vh; <-- Not yet ;)
-}
 
 // HEADER
 $aspectRatio: $backgroundHeight / $backgroundWidth;
 $thePointBelowTheDeskItems: $aspectRatio * 100vw * 0.5;
 
-%movement-type-1 {
+%animatingFont {
   font-family: "Movement"; 
   font-variation-settings: "wght" var(--movementWght), "SPAC" var(--movementSpac);
   transition: font-variation-settings 1s ease;
@@ -45,21 +36,7 @@ header.the-magic-table {
     top: $thePointBelowTheDeskItems;
     
     span {
-      @extend %movement-type-1;
+      @extend %animatingFont;
     }
   }
 }
-
-// FAIL BETTER
-blockquote.fail-better {
-  font-size: 40px;
-  color: white;
-  text-align: center;
-  h1,h2,h3,h4,h5,h6 {
-    @extend %movement-type-1;
-  }
-  p {
-    margin-bottom: .5em;
-  }
-}
-
