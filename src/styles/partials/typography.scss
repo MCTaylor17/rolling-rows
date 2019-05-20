@@ -1,6 +1,8 @@
 /////////////
 //Scrollbar//
 /////////////
+@import "../variables";
+
 html, body {
    scrollbar-width: none;
 }
@@ -16,11 +18,6 @@ html, body {
   font-family: "Movement";
   src: url("./src/styles/type/MovementV.ttf") format("truetype-variations");
 }
-
-$heading-size: 6vw;
-$colorDefault: white;
-$fontFamilyDefault: sans-serif;
-$fontFamilyHeading: "Movement";
 
 ::selection {
   background: rgba(110, 39, 0, 0.48);
@@ -38,17 +35,4 @@ h1,h2,h3,h4,h5,h6, .heading-font {
 p,li {
   margin-bottom: 1em;
   line-height: 1.5;
-}
-
-%movement-type-1 {
-  font-family: "Movement"; 
-  font-variation-settings: "wght" var(--movementWght), "SPAC" var(--movementSpac);
-  transition: font-variation-settings 1s ease;
-
-  &:hover {
-    --movementWght: 900;
-  }
-  &:active {
-    --movementSpac: 120;
-  }
 }
