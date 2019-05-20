@@ -7,3 +7,4 @@ export { default as MagicRows } from "./MagicRows";
 export { default as HeaderRow } from "./HeaderRow";
 export { default as TableTop } from "./TableTop";
 export { default as FurthestRow } from "./FurthestRow";
+export { default as Unlocks } from "./Unlocks";

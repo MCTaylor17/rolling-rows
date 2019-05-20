@@ -30,6 +30,7 @@ const MagicTable = props => {
   const tableTop       = hooks.TableTop(topRef);
   const middleRow      = hooks.MiddleRow(tableTop, rowHeight, numberOfRows, gutters);
   const furthestRow    = hooks.FurthestRow(middleRow);
+  const unlocks        = hooks.Unlocks(furthestRow);
   const whichRows      = hooks.WhichRows(numberOfRows, middleRow, displayLength);
   const headerRow      = hooks.HeaderRow(columnLayout);
   const tableData      = hooks.TableData();
@@ -58,6 +59,7 @@ const MagicTable = props => {
     middleRow,
     magicRows,
     scrollRef,
+    unlocks,
     gutters,
     themes,
     topRef,
