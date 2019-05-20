@@ -40,9 +40,6 @@ $fontFamilyDefault: sans-serif;
 $fontFamilyHeading: "Movement";
 
 ::selection {
-  font-variation-settings: "wght" var(--wght), "SPAC" var(--spac);
-  --wght: 900;
-  --spac: 120;
   background: rgba(110, 39, 0, 0.48);
 }
 
@@ -60,12 +57,15 @@ p,li {
   line-height: 1.5;
 }
 
+:root {
+  --wght: 100;
+  --spac: 100;
+}
+
 %movement-type-1 {
   font-family: "Movement"; 
   font-variation-settings: "wght" var(--wght), "SPAC" var(--spac);
   transition: font-variation-settings 1s ease;
-  --wght: 100;
-  --spac: 100;
 
   &:hover {
     --wght: 900;
@@ -199,6 +199,7 @@ header.the-magic-table {
     position: relative;
     top: $offsetRelativeToBG;
     color: white;
+    user-select: none;
     text-align: center;
     text-shadow: 5px 5px 15px black;
     
