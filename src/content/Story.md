@@ -8,4 +8,9 @@ I was invited to SF for an interview with a prominent organization.  When I arri
 
 > How would it feel?
 
-This is my response...
+🤔
+💭
+🤩
+🙄
+😲
+😍
