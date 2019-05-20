@@ -14,16 +14,10 @@ $outerBorders: 3px solid black;
   position: relative;
   height: calc(var(--totalRowHeight) * var(--numberOfRows));
   color: $colorDefault;
-  
-  .houdini-warning {
-    display: block;
-  }
+  background: rgba(255, 255, 255, 0.17);
+  background: paint(chicklet);
     
   @supports(background: paint(chicklet)) {
-    .houdini-warning {
-      display: none;
-    }
-    
     background: paint(chicklet);
     background-size: 100% var(--totalRowHeight);
     background-repeat: repeat-y;
