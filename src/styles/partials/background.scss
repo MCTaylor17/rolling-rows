@@ -1,7 +1,7 @@
 //////////////
 //Background//
 //////////////
-@import "../variables";
+@import "../global";
 $aspectRatio: $backgroundHeight / $backgroundWidth;
 $repeatingBackgroundOffest: $aspectRatio * 100vw - 2vw;
 
