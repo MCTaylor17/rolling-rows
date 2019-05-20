@@ -1,0 +1,23 @@
+/////////////////////
+//Dynamic Variables//
+/////////////////////
+:root {
+  --backgroundMaskColor: rgba(38, 31, 12, 0.57);
+  --movementWght: 100;
+  --movementSpac: 100;
+}
+
+////////////////////
+//Static Variables//
+////////////////////
+
+// z-indices
+$zMask: 2;
+
+// background Image Dimensions:
+$backgroundWidth: 1920px;
+$backgroundHeight: 1241px;
+$coffeeWidth: 185px;
+$coffeeHeight: 260px;
+$cookiesWidth: 280px;
+$cookiesHeight: 280px;

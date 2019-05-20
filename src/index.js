@@ -1,5 +1,5 @@
 console.log("Hello World");
-import "./styles/global.scss";
+import "./styles/main.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import MagicTable from "@/src/components/MagicTable";
