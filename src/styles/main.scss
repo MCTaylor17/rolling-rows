@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 // Setup
-@import "./norms";
-@import "./variables";
+@import "./partials/norms";
+@import "./partials/variables";
 
 // Global
-@import "./typography";
+@import "./partials/typography";
 
 // Specific
-@import "./background";
-@import "./background-buttons";
-@import "./content-blocks";
+@import "./partials/background";
+@import "./partials/background-buttons";
+@import "./partials/content-blocks";
