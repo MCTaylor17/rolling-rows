@@ -26,3 +26,32 @@ const App = () => {
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
+
+///////
+//WIP//
+///////
+
+//   import React, {useEffect} from "react";
+//   useEffect(InitializeStory,[]);
+
+//const InitializeStory = () => {
+//      const promptsContainer = document.querySelector("#prompts");
+//      const button = document.querySelector("#next");
+//
+////    BUG: -->  let prompts = promptsContainer.children();
+////    SYMPTOM: promptsContainer is null for some reason...
+////    REPRODUCE: console.log({promptsContainer, button, prompts});
+//    
+////    let currentPage = 0;
+////    const hideAllChildren = parent => {
+////      parent.children.forEach(prompt => {
+////        prompt.styles.display = "none";
+////      });
+////    };
+////
+////    const nextPage = prompts => {
+////      hideAllChildren(prompts);
+////      prompts[++currentPage].styles.display = "block";
+////    };
+//
+//  }
