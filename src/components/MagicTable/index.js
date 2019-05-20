@@ -36,35 +36,31 @@ const MagicTable = props => {
   const magicRows      = hooks.MagicRows(columnLayout, whichRows, tableData, activeColumn);
   const columnWidths   = hooks.SerializeColumnWidths(columnLayout);
   
-  /* Closes #8
-  
-  Suggested approach:
-  "So basically hold the screen in place with scrollTop = middleRow.offsetTop."
-
-  Revised:
-  * observe tableTop, rowHeight and gutters
-  * Set scrollTop to tableTop + middleRow * (rowHeight + gutters);
-  
-  */
-  
+  /* Closes #8 */
+  const [scrollLock, setScrollLock] = useState(false);
   useEffect(() => {
-    const newTop = tableTop + middleRow * (rowHeight + gutters);
-    window.scrollTo(0, newTop)
-  },[tableTop, rowHeight, gutters]);
+    const isWithinTable = middleRow > 0 && middleRow < numberOfRows;
+    
+    if(isWithinTable) {
+      const totalHeight = rowHeight + gutters;
+      const halfViewport = window.innerHeight / 2;
+      const middleOffset = middleRow * totalHeight;
+      const newTop = middleOffset + halfViewport + tableTop;
+      
+      window.scrollTo(0, newTop)
+    }
+  },[tableTop, rowHeight, gutters, numberOfRows]);
   
   /*
-  
   BUGS:
-  * Seams to be scrolling to the top of the page until resize, etc stops
-    -> Add 1/2 window height;
-    
-  * Scrolls to 0 row on load
-    -> if middleRow > 0;
+  * Sometimes scrolls to 0 if reloaded within the table
+  * 
   
-  Check:
+  CHECK:
   * Conflicts with scrollHandlers
   * Not changing middleRow
-  
+    - Currently: Yup
+    - Math might be wrong.  Adding too much
   */
 
   const properties = {
