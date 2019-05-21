@@ -24,7 +24,6 @@ const MagicTable = props => {
   const [borderRadius, onBorderRadius] = handlers.BorderRadius();
   const [rowHeight, onRowHeight] = handlers.RowHeight();
   const [gutters, onGutters] = handlers.Gutters();
-  const scrollRef      = useRef(null);
   const topRef         = useRef(null);
   const numberOfRows   = hooks.NumberOfRows();
   const tableTop       = hooks.TableTop(topRef);
@@ -36,6 +35,7 @@ const MagicTable = props => {
   const tableData      = hooks.TableData();
   const magicRows      = hooks.MagicRows(columnLayout, whichRows, tableData, activeColumn);
   const columnWidths   = hooks.SerializeColumnWidths(columnLayout);
+  hooks.AdjustScrollTop(middleRow, numberOfRows,rowHeight, gutters, tableTop);
 
   const properties = {
     onTransitionTime,
@@ -58,7 +58,6 @@ const MagicTable = props => {
     headerRow,
     middleRow,
     magicRows,
-    scrollRef,
     unlocks,
     gutters,
     themes,

@@ -18,8 +18,7 @@ const MagesticalTable = props => {
   return (
     <>
       <Controls {...props} />
-      <div className="magic-table" ref={props.scrollRef} style={tableStyles}>
-        
+      <div className="magic-table" style={tableStyles}>
         
         <div className="magic-thead">
          <Row {...props} {...props.headerRow}/>
