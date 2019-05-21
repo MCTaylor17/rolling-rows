@@ -20,7 +20,7 @@ html, body {
 }
 
 ::selection {
-  background: rgba(110, 39, 0, 0.48);
+  background: var(--selection);
 }
 
 body, html {
