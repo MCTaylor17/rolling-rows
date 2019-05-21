@@ -19,15 +19,17 @@ $revealTime: .4s;
   right: 0;
   bottom: 10%;
   z-index: 2147483647;
-  transform: translateX(calc(100% - 65px));
-  transition: transform .7s ease;
   padding: 15px;
   padding-right: 0px;
   border-radius: 10px 0 0 10px;
   background: white;
   box-shadow: -3px 3px 5px gray;
   
+  transform: translateX(calc(100% - 65px));
+  transition: transform .7s ease 1.5s;
+  
   &:hover {
+    transition: transform .4s ease;
     transform: translateX(calc(0% + 10px));
   }
 }
