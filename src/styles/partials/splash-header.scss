@@ -9,6 +9,7 @@ $thePointBelowTheDeskItems: $aspectRatio * 100vw * 0.5;
 
 header.splash {
   pointer-events: none;
+  overflow-x: hidden;
   height: 100vh;
   color: white;
   font-size: 6vw;
@@ -24,7 +25,6 @@ header.splash {
     display: none;
   }
 
-  //@include media("<800px") {
   @media screen and (max-aspect-ratio: 1/1) {
     align-items: center;
     padding-top: 0;
