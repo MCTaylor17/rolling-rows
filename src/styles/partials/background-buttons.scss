@@ -1,6 +1,7 @@
 //////////////////////
 //Background Buttons//
 //////////////////////
+@import "../global";
 
 @mixin background-image-buttons($url) {
   position: absolute;
