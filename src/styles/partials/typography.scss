@@ -20,7 +20,8 @@ html, body {
 }
 
 ::selection {
-  background: var(--selection);
+  background: var(--selectionBackground);
+  border-radius: 50px;
 }
 
 body, html {
