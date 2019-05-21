@@ -23,11 +23,16 @@ header.splash {
   user-select: none;
   pointer-events: none;
   overflow-x: hidden;
+  mix-blend-mode: overlay;
+  transition: font-variation-settings 1s ease-in-out;
+  font-variation-settings: "wght" var(--movementWght), "SPAC" var(--movementSpac);
+
+  &:active {
+    --movementSpac: 120;
+  }
   
   .word {
     pointer-events: all;
-    font-variation-settings: "wght" var(--movementWght), "SPAC" var(--movementSpac);
-    transition: font-variation-settings 2s ease;
 
     &:hover {
       --movementWght: 900;
