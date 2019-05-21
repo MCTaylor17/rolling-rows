@@ -4,42 +4,26 @@
 @import "../global";
 
 // HEADER
+$square: "max-aspect-ratio: 1/1";
+$pencil: "max-aspect-ratio: 1/3";
+$pancake: "min-aspect-ratio: 2/1";
 $aspectRatio: $backgroundHeight / $backgroundWidth;
 $thePointBelowTheDeskItems: $aspectRatio * 100vw * 0.5;
 
 header.splash {
-  pointer-events: none;
-  overflow-x: hidden;
+  padding-top: $thePointBelowTheDeskItems;
+  display: grid;
+  align-items: start;
   height: 100vh;
   color: white;
   font-size: 6vw;
   font-family: "Movement"; 
-  user-select: none;
   text-align: center;
   text-shadow: 5px 5px 15px black;
-  display: grid;
-  align-items: start;
-  padding-top: $thePointBelowTheDeskItems;
+  user-select: none;
+  pointer-events: none;
+  overflow-x: hidden;
   
-  .break {
-    display: none;
-  }
-
-  @media screen and (max-aspect-ratio: 1/1) {
-    align-items: center;
-    padding-top: 0;
-    font-size: calc(4vw + 5vh);
-    
-    .break {
-      display: inline;
-    }
-  }
-  
-  @media screen and (min-aspect-ratio: 2/1) {
-    align-items: center;
-    padding-top: 0;
-  }
-    
   .word {
     pointer-events: all;
     font-variation-settings: "wght" var(--movementWght), "SPAC" var(--movementSpac);
@@ -47,6 +31,33 @@ header.splash {
 
     &:hover {
       --movementWght: 900;
+    }
+  }
+
+  .break {
+    display: none;
+  }
+    
+  @media screen and (unquote($pancake)) {
+    align-items: center;
+    padding-top: 0;
+  }
+  
+  @media screen and (unquote($square)) {
+    align-items: center;
+    padding-top: 0;
+    font-size: calc(4vw + 5vh);
+
+    // Show <br> tags
+    .break {
+      display: inline;
+    }
+    
+    // Intro Font
+    letter-spacing: 0vw;
+    transition: letter-spacing 3s cubic-bezier(.87,.66,0,1.27);
+    &.initial {
+      letter-spacing: -100vw;
     }
   }
 }
