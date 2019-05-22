@@ -6,6 +6,7 @@ import * as handlers from "./Handlers";
 import Table from "./Table";
 import themes from "./styles/themes";
 
+import playKeys from "../../keys";
 
 const MagicTable = props => {
   const [columnLayout, setColumnLayout] = useState([
@@ -36,6 +37,12 @@ const MagicTable = props => {
   const magicRows      = hooks.MagicRows(columnLayout, whichRows, tableData, activeColumn);
   const columnWidths   = hooks.SerializeColumnWidths(columnLayout);
   hooks.AdjustScrollTop(middleRow, numberOfRows,rowHeight, gutters, tableTop);
+  
+  const prev = useRef(0);
+  useEffect(() => {
+    playKeys(middleRow,prev.current, transitionTime * 1000);
+    prev.current = middleRow;
+  },[middleRow]);
 
   const properties = {
     onTransitionTime,
