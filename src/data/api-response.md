@@ -1,5 +1,5 @@
 
-******* <*****@******.com>
+??????? <?????@??????.com>
 Apr 15, 2019, 10:35 AM
 to Mike
 
@@ -7,9 +7,9 @@ Hi Mike,
 
 Hope you enjoyed your stay in SF and got some cool footage on your penny board!
 
-I'm reaching out to gather feedback on your interview experience with ******.  We value your opinion, so we’d love if you could fill out this quick 3-5 minute survey.
+I'm reaching out to gather feedback on your interview experience with ??????.  We value your opinion, so we’d love if you could fill out this quick 3-5 minute survey.
 
-******* candidate experience survey
+??????? candidate experience survey
 
 For your time, we’d like to offer you a $10 Amazon Gift Card, but if you’d like to remain anonymous, simply leave the email address blank on the last step.
 
@@ -17,9 +17,10 @@ If you have any questions, feel free to email me back.
 
 Cheers,
 
-***** | VP of Operations
+????? | VP of Operations
 
 ---
+
 ---
 
 Sorry for the delayed response, but I figure I only have one reply so I wanted to [make it count](https://magic-table.netlify.com).
