@@ -91,26 +91,12 @@ const keyboard = keyPaths.map(keyPath => {
   return new Howl({src: keyPath});
 });
 
-
-let count = 0;
-const zelda = [1, 10, 15, 24];
-const zLen = zelda.length;
-const playKey = (current, prev) => {
-//  keyboard[current % numberOfKeys].play();
-//  keyboard[prev % numberOfKeys].fade(1,0,100);
-
-  const currentVal = current % zLen
-  const currentKey = keyboard[currentVal];
-  currentKey.volume(1);
-  currentKey.play();
-  
-  const prevVal = prev % zLen
-  const prevKey = keyboard[prevVal];
-  if(prevVal !== 3) {
-    prevKey.fade(1,0,100);
-  }
+const playKey = (current, prev, fadeDuration) => {
+  const currKey = keyboard[current % numberOfKeys];
+  const prevKey = keyboard[prev % numberOfKeys]
+  currKey.volume(1).play();
+  prevKey.fade(1,0,fadeDuration + 100);
 }
-
 
 export default playKey;
 

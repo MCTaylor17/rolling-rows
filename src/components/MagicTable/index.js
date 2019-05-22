@@ -40,7 +40,7 @@ const MagicTable = props => {
   
   const prev = useRef(0);
   useEffect(() => {
-    playKeys(middleRow,prev.current);
+    playKeys(middleRow,prev.current, transitionTime * 1000);
     prev.current = middleRow;
   },[middleRow]);
 
