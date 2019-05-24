@@ -1,0 +1,153 @@
+// Ripped from another project of mine.  I needed something fast...  Nothing to see here.  Go look at some of the other stuff ;)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$hFontSize: calc(1vh + 3vw + 1rem);
+$bFontSize: calc(1vh + 1vw + 1rem);
+$textShadow: 1px 3px 3px rgba(0, 0, 0, 0.74);
+
+
+
+
+
+
+
+
+
+
+.skillBox {
+  color: rgba(254, 190, 121, 0.7);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  //max-width: 600px;
+  text-shadow: $textShadow;
+  margin: 0 auto;
+  font-family: "Movement";
+  font-variation-settings: "SPAC" 120;
+  
+  // I remember spending a ton of time 
+  // Trying to make it work with semantic
+  // HTML or something and it all went wrong when I tried adding a link...
+  
+  // I think this is a spacer???
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 2
+  }
+  
+  // Notes would have helped here...
+  &:before {
+    top: 0;
+  }
+  
+  &:after {
+    bottom: 0;
+  }
+  
+  // React synthetic events are bound to the 'Link' component which is rendered as an <a> tag.  Not my finest hour.
+  a {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    h1 {
+      font-variation-settings: "SPAC" 120 "WGHT" 900;
+      position: absolute;
+      background: transparent;
+      text-align: center;
+      font-size: calc(1vh + 3vw + 1rem);
+      width: 100%;
+      height: 100%;
+      display: grid;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease-in;
+      z-index: 10;
+      align-items: center;
+    }
+    
+    &:hover, &:focus {
+      h1 {
+//        transform: scale(0) rotate(3turn) translateY(-100px);
+//        pointer-events: none;
+        opacity: 0;
+      }
+    }
+  }
+  
+  ul {
+    // This rule is the only thing worth saving...
+    -webkit-mask-image: linear-gradient(transparent 0%, transparent 10%, black 33%, black 66%, transparent 90%, transparent 100%);
+    position: relative;
+    height: 100%;
+    padding-left: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 1s ease 1s;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.74);
+  }
+  
+  &:hover ul {
+    opacity: 1;
+  }
+  
+  // Skills
+  li {
+    position: absolute;
+    font-size: $bFontSize;
+    z-index: 1;
+    list-style-type: none;
+    padding: 20px 20px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 0;
+    line-height: 2;
+  }
+}

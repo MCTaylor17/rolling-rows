@@ -28,6 +28,9 @@ button#coffee {
 
 button#cookies {
   @include background-image-buttons("src/styles/img/cookies.png");
+  &.accepted {
+    background-image: url("src/styles/img/cookies-accepted.png");
+  }
   @include scale-to-parent($cookiesWidth, $cookiesHeight, $backgroundWidth, $backgroundHeight);
   left: 83.25%;
   top: 7.25%;
@@ -40,9 +43,6 @@ button#cookies {
     filter: drop-shadow(-30px 30px 40px rgba(0, 0, 0, 0.68));
   }
   &:active {
-    z-index: $zMask + 1;
-    transform: scale(1.25);
-    transition: all .4s ease;
-    filter: none;
+    transform: scale(1.6) rotate(-29deg) skew(17deg);
   }  
 }

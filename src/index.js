@@ -2,7 +2,8 @@ console.log("Hello World");
 import "./styles";
 import React from "react";
 import ReactDOM from "react-dom";
-import MagicTable from "@/src/components/MagicTable";
+import Story from "@/src/components/Story";
+
 import * as content from "./content";
 import "./lock-exploits";
 
@@ -16,13 +17,13 @@ fragments.forEach(fragment => {
   fragment.parentNode.replaceChild(replacement, fragment);
 });
 
-const App = () => {
-  return (
-    <div className="App">
-      <MagicTable/>
-    </div>
-  );
+const cookies = document.getElementById("cookies");
+const cookieHandler = event => {
+  window.setIsCookiesAccepted(true);
+  cookies.classList.add("accepted");
 }
 
+cookies.addEventListener("click",cookieHandler);
+
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Story init={(setIsCookiesAccepted) => {window.setIsCookiesAccepted = setIsCookiesAccepted}}/>, rootElement);

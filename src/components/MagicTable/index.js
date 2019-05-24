@@ -5,6 +5,7 @@ import * as hooks from "./Hooks";
 import * as handlers from "./Handlers";
 import Table from "./Table";
 import themes from "./styles/themes";
+import ScrollBox from "../ScrollBox";
 
 import playKeys from "../../keys";
 
@@ -40,7 +41,7 @@ const MagicTable = props => {
   
   const prev = useRef(0);
   useEffect(() => {
-    playKeys(middleRow,prev.current, transitionTime * 1000);
+    playKeys(middleRow,prev.current, transitionTime * 200);
     prev.current = middleRow;
   },[middleRow]);
 
@@ -71,9 +72,32 @@ const MagicTable = props => {
     topRef,
   }
   
+  const failure = [
+    "Ever Tried?",
+    " ",
+    " ",
+    "Ever Failed?",
+    " ",
+    " ",
+    "No Matter.",
+    " ",
+    " ",
+    "Try Again.",
+    " ",
+    " ",
+    "Fail Again.",
+    " ",
+    " ",
+    "Fail Better!",
+    " ",
+    " ",
+  ]
+  
   return (
     <>
-      <Table {...properties} />
+     <Table {...properties} />
+    
+      <ScrollBox title="Ever Tried?" subSkills={failure}/>
     </>
   );
 };

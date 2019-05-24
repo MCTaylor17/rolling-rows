@@ -22,10 +22,11 @@ $revealTime: .4s;
   padding: 15px;
   padding-right: 0px;
   border-radius: 10px 0 0 10px;
-  background: white;
-  box-shadow: -3px 3px 5px gray;
+  border: 5px solid steelblue;
+  border-right: none;
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.6);
   
-  transform: translateX(calc(100% - 65px));
+  //transform: translateX(calc(100% - 65px));
   transition: transform .7s ease 1.5s;
   
   &:hover {
@@ -37,15 +38,19 @@ $revealTime: .4s;
 // Basic Styles
 .control-group {
   border-radius: 5px;
-  padding: 6px;
-  padding-right: 20px;
+  border-bottom-right-radius: 0; 
+  border-top-right-radius: 0;
+  padding: 6px 20px 6px 10px;
+  
   color: gray;
   transition: all $revealTime ease;
-
+  background: #ecffff;
+  color: #333;
   &:hover {
-    color: #333;
-    background: #ecffff;
-    box-shadow: -1px 1px 3px gray;
+    box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.8);
+  }
+  &:not(:first-of-type) {
+    margin-top: 20px;
   }
 }
 
@@ -58,7 +63,7 @@ $revealTime: .4s;
 
   // Reveal control on hover
   .reveal {
-    opacity: 0;
+    //opacity: 0;
     transition: opacity $revealTime ease;
   }
   &:hover .reveal {

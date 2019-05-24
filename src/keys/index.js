@@ -80,21 +80,19 @@ const makeNPaths = (N, string, sep) => {
     return string.split(sep).join(zeroPrefix(i + 1))
   });
   
-  console.log("WORKING", nPaths);
   return nPaths;
 };
 const numberOfKeys = 24;
 const keyPaths = makeNPaths(numberOfKeys, "../src/keys/key$.mp3", "$");
-    console.log({keyPaths});
 
 const keyboard = keyPaths.map(keyPath => {
-  return new Howl({src: keyPath});
+  return new Howl({src: keyPath, volume: 0});
 });
 
 const playKey = (current, prev, fadeDuration) => {
   const currKey = keyboard[current % numberOfKeys];
   const prevKey = keyboard[prev % numberOfKeys]
-  currKey.volume(1).play();
+  currKey.stop().volume(1).play();
   prevKey.fade(1,0,fadeDuration + 100);
 }
 
