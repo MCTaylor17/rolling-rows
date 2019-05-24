@@ -23,6 +23,8 @@ header.splash {
   pointer-events: none;
   overflow-x: hidden;
   mix-blend-mode: overlay;
+  position: relative;
+  z-index: 99999999999999999;
 
   //!: Required to click through to background buttons.
   user-select: none;
