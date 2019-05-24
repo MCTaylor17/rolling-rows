@@ -22,7 +22,6 @@ header.splash {
   text-shadow: 5px 5px 15px black;
   pointer-events: none;
   overflow-x: hidden;
-  //mix-blend-mode: overlay;
   position: relative;
   z-index: 99999999999999999;
 
@@ -71,3 +70,9 @@ header.splash {
     }
   }
 }
+
+  @supports(mix-blend-mode: overlay) {
+    header.splash {
+      mix-blend-mode: overlay;
+    }
+  }
