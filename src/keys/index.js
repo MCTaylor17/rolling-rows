@@ -92,8 +92,13 @@ const keyboard = keyPaths.map(keyPath => {
 const playKey = (current, prev, vol, fadeDuration) => {
   const currKey = keyboard[current % numberOfKeys];
   const prevKey = keyboard[prev % numberOfKeys]
-  currKey.stop().volume(vol).play();
-  prevKey.fade(vol,0,fadeDuration + 100);
+  
+  currKey.stop().volume(vol);
+  prevKey.fade(vol,0,fadeDuration);
+
+  if(vol) {
+    currKey.play();
+  }
 }
 
 export default playKey;

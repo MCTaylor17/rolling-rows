@@ -25,14 +25,6 @@ $revealTime: .4s;
   border: 5px solid steelblue;
   border-right: none;
   box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.6);
-  
-  //transform: translateX(calc(100% - 65px));
-  transition: transform .7s ease 1.5s;
-  
-  &:hover {
-    transition: transform .4s ease;
-    transform: translateX(calc(0% + 10px));
-  }
 }
 
 // Basic Styles

@@ -44,9 +44,10 @@ const MagicTable = props => {
     setVolume(parseFloat(e.target.value));
   }
 
-  const prev = useRef(0);
+  const prev = useRef(0); // move state into keys
   useEffect(() => {
-    playKeys(middleRow,prev.current, volume, transitionTime * 200);
+    const fadeDuration = transitionTime * 200 + 100;
+    playKeys(middleRow, prev.current, volume, fadeDuration);
     prev.current = middleRow;
   },[middleRow]);
   
@@ -102,8 +103,14 @@ const MagicTable = props => {
   return (
     <>
      <Table {...properties} />
-    
-      <ScrollBox title="Ever Tried?" subSkills={failure}/>
+     <section id="failure">
+        <p>Ever Tried</p>
+        <p>Ever Failed</p>
+        <p>No Matter</p>
+        <p>Try Again</p>
+        <p>Fail Again</p>
+        <p>Fail Better</p>
+     </section>
     </>
   );
 };
