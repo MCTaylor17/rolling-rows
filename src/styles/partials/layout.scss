@@ -8,3 +8,10 @@
   margin: 20px 5%;
   //height: 50vh; <-- Not yet ;)
 }
+
+#mobile-chrome-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
