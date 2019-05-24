@@ -13,7 +13,7 @@ export default [
   "They sent scouts out ahead in search of a wizard possessing a very rare and potent set of skills.",
   " ",
   "One talented scout happened upon a small gathering of wizards in the astral realm.",
-  "This where they learned of the magnificent...",
+  "This is where they learned of the magnificent...",
   " ",
   " ",
   "~Magic Mike~",
