@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const order = [
+  [0, "volume"],
   [100, "displayLength"],
   [500, "transitionTime"],
   [1000, "themeChoice"],

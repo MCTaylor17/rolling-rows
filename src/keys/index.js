@@ -89,11 +89,11 @@ const keyboard = keyPaths.map(keyPath => {
   return new Howl({src: keyPath, volume: 0});
 });
 
-const playKey = (current, prev, fadeDuration) => {
+const playKey = (current, prev, vol, fadeDuration) => {
   const currKey = keyboard[current % numberOfKeys];
   const prevKey = keyboard[prev % numberOfKeys]
-  currKey.stop().volume(1).play();
-  prevKey.fade(1,0,fadeDuration + 100);
+  currKey.stop().volume(vol).play();
+  prevKey.fade(vol,0,fadeDuration + 100);
 }
 
 export default playKey;

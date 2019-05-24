@@ -39,19 +39,24 @@ const MagicTable = props => {
   const columnWidths   = hooks.SerializeColumnWidths(columnLayout);
   hooks.AdjustScrollTop(middleRow, numberOfRows,rowHeight, gutters, tableTop);
   
+  const [volume, setVolume] = useState(.5);
+  const onVolume = e => {
+    setVolume(parseFloat(e.target.value));
+  }
+
   const prev = useRef(0);
   useEffect(() => {
-    playKeys(middleRow,prev.current, transitionTime * 200);
+    playKeys(middleRow,prev.current, volume, transitionTime * 200);
     prev.current = middleRow;
   },[middleRow]);
-
+  
   const properties = {
     onTransitionTime,
     onDisplayLength,
-    onThemeChoice,
     onBorderRadius,
     transitionTime,
     displayLength,
+    onThemeChoice,
     columnWidths,
     borderRadius,
     numberOfRows,
@@ -66,6 +71,7 @@ const MagicTable = props => {
     headerRow,
     middleRow,
     magicRows,
+    onVolume,
     unlocks,
     gutters,
     themes,
