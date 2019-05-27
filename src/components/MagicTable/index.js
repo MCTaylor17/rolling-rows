@@ -5,9 +5,8 @@ import * as hooks from "./Hooks";
 import * as handlers from "./Handlers";
 import Table from "./Table";
 import themes from "./styles/themes";
-import ScrollBox from "../ScrollBox";
-
 import playKeys from "../../keys";
+
 
 const MagicTable = props => {
   const [columnLayout, setColumnLayout] = useState([
@@ -50,6 +49,32 @@ const MagicTable = props => {
     playKeys(middleRow, prev.current, volume, fadeDuration);
     prev.current = middleRow;
   },[middleRow]);
+
+  const [isOutside, setIsOutside] = useState(true);
+  useEffect(()=> {
+    const isFirstRow = middleRow === 0;
+    const isLastRow = middleRow === numberOfRows;
+    const isEntering = isOutside && !isFirstRow && !isLastRow && props.onEnter; 
+    const isExitingTop = isFirstRow && !isLastRow && !isOutside && props.onExitTop;
+    const isExitingBottom = isLastRow && !isFirstRow && !isOutside && props.onExitBottom;
+
+    if(isEntering) {
+      console.log({isEntering})
+      setIsOutside(false);
+      props.onEnter();
+    }
+    if(isExitingTop) {
+      console.log({isExitingTop})
+      console.log()
+      setIsOutside(true);
+      props.onExitTop();
+    }
+    if(isExitingBottom) {
+      console.log({isExitingBottom})
+      setIsOutside(true);
+      props.onExitBottom();
+    }
+  }, [middleRow, numberOfRows]);
   
   const properties = {
     onTransitionTime,
