@@ -26,24 +26,45 @@ button#coffee {
   top: 2.9%;
 }
 
+$cookieX: 83.25%;
+$cookieY: 7.25%;
 button#cookies {
   @include background-image-buttons("src/styles/img/cookies.png");
   &.accepted {
     background-image: url("src/styles/img/cookies-accepted.png");
   }
   @include scale-to-parent($cookiesWidth, $cookiesHeight, $backgroundWidth, $backgroundHeight);
-  left: 83.25%;
-  top: 7.25%;
-  transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+  left: $cookieX;
+  top: $cookieY;
+  transition: transform .6s ease-in-out, filter .6s ease-in-out;
 
   &:hover,
   &:focus {
     transform: scale(1.3) rotate(-29deg) skew(17deg);
+    // DEBT: drop-shadow should not be hard-coded px.
+    // USE: Percent doesn't work but viewport units do.
+    // STATE: I'm not in one to think about this.
     filter: drop-shadow(-30px 30px 40px black);
+    animation: floatingCookies 3s ease-in-out infinite;
+    @keyframes floatingCookies {
+      0% { 
+        top: $cookieY;
+        filter: drop-shadow(-30px 30px 40px black);
+      }
+      50% { 
+        top: $cookieY + 1%;
+        filter: drop-shadow(-30px 30px 15px black);
+      }
+      100% { 
+        top: $cookieY;
+        filter: drop-shadow(-30px 30px 40px black);
+      }
+    }
   }
   &:active {
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
     transform: scale(1.4) rotate(-29deg) skew(17deg);
+    animation: none;
   }
   
   // Cheaap pre-load to avoid jank
@@ -54,3 +75,4 @@ button#cookies {
     background-image: url("src/styles/img/cookies-accepted.png");
   }
 }
+
