@@ -57,7 +57,7 @@ const inter = setInterval(() => {
   console.log("played",sound.play())
 });
 var sound = new Howl({
-  src: ["./src/styles/piano-keys/key01.mp3"],
+  src: ["./src/styles/keys/key01.mp3"],
   onload: () => clearInterval(inter)
 });
 */
@@ -83,7 +83,7 @@ const makeNPaths = (N, string, sep) => {
   return nPaths;
 };
 const numberOfKeys = 24;
-const keyPaths = makeNPaths(numberOfKeys, "../src/keys/key$.mp3", "$");
+const keyPaths = makeNPaths(numberOfKeys, "../src/keys/assets/key$.mp3", "$");
 
 const keyboard = keyPaths.map(keyPath => {
   return new Howl({src: keyPath, volume: 0});

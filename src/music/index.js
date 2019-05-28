@@ -2,25 +2,25 @@ import MusicPlayer from "./MusicPlayer";
 import headphoneProximity$ from "../headphones";
 
 const welcome = new MusicPlayer([
-    "src/music/Brewing-Potions_Rafael-Krux.mp3",
-    "src/music/HippetyHop.mp3",
-], .5);
+    "src/music/assets/Brewing-Potions_Rafael-Krux.mp3",
+    "src/music/assets/HippetyHop.mp3",
+], .1);
 
 // Adjust welcome volume relative to headphones
 headphoneProximity$.subscribe(proximity => welcome.volume(Math.pow(proximity,3)));
 
 const story = new MusicPlayer([
-    "src/music/One-Step-Closer_Rafael-Krux.mp3",
+    "src/music/assets/One-Step-Closer_Rafael-Krux.mp3",
 ], .5);
 
 const ending = new MusicPlayer([
-    "src/music/Orquesta-Antimanierista_Saturaction_01_Paulm.ogg",
-    "src/music/Orquesta-Antimanierista_Saturaction_01_Paulm.mp3"
+    "src/music/assets/Orquesta-Antimanierista_Saturaction_01_Paulm.ogg",
+    "src/music/assets/Orquesta-Antimanierista_Saturaction_01_Paulm.mp3"
 ], .5);    
 
 const eery = new MusicPlayer([
-    "src/music/Orquesta-Antimanierista_Saturaction_04_Sueno-Vertical.ogg",
-    "src/music/Orquesta-Antimanierista_Saturaction_04_Sueno-Vertical.mp3"
+    "src/music/assets/Orquesta-Antimanierista_Saturaction_04_Sueno-Vertical.ogg",
+    "src/music/assets/Orquesta-Antimanierista_Saturaction_04_Sueno-Vertical.mp3"
 ], .5);    
 
 

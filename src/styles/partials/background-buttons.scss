@@ -20,7 +20,7 @@
 }
 
 button#coffee {
-  @include background-image-buttons("src/styles/img/coffee.png");
+  @include background-image-buttons("src/styles/assets/coffee.png");
   @include scale-to-parent($coffeeWidth, $coffeeHeight, $backgroundWidth, $backgroundHeight);
   left: 20.3%;
   top: 2.9%;
@@ -29,9 +29,9 @@ button#coffee {
 $cookieX: 83.25%;
 $cookieY: 7.25%;
 button#cookies {
-  @include background-image-buttons("src/styles/img/cookies.png");
+  @include background-image-buttons("src/styles/assets/cookies.png");
   &.accepted {
-    background-image: url("src/styles/img/cookies-accepted.png");
+    background-image: url("src/styles/assets/cookies-accepted.png");
   }
   @include scale-to-parent($cookiesWidth, $cookiesHeight, $backgroundWidth, $backgroundHeight);
   left: $cookieX;
@@ -69,7 +69,7 @@ button#cookies {
     content: "";
     visibility: hidden;
     position: absolute;
-    background-image: url("src/styles/img/cookies-accepted.png");
+    background-image: url("src/styles/assets/cookies-accepted.png");
   }
 }
 
