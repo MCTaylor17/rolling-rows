@@ -37,6 +37,7 @@ button#cookies {
   left: $cookieX;
   top: $cookieY;
   transition: transform .6s ease-in-out, filter .6s ease-in-out;
+  filter: drop-shadow(0px 0px 0px black);
 
   &:hover,
   &:focus {
@@ -44,26 +45,22 @@ button#cookies {
     // DEBT: drop-shadow should not be hard-coded px.
     // USE: Percent doesn't work but viewport units do.
     // STATE: I'm not in one to think about this.
-    filter: drop-shadow(-30px 30px 40px black);
-    animation: floatingCookies 3s ease-in-out infinite;
+    animation: floatingCookies 1.5s ease-in-out infinite alternate;
     @keyframes floatingCookies {
       0% { 
         top: $cookieY;
-        filter: drop-shadow(-30px 30px 40px black);
-      }
-      50% { 
-        top: $cookieY + 1%;
-        filter: drop-shadow(-30px 30px 15px black);
+        filter: drop-shadow(-30px 30px 30px black);
       }
       100% { 
-        top: $cookieY;
-        filter: drop-shadow(-30px 30px 40px black);
+        top: $cookieY + 1%;
+        filter: drop-shadow(-30px 30px 15px black);
       }
     }
   }
   &:active {
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
     transform: scale(1.4) rotate(-29deg) skew(17deg);
+    filter: drop-shadow(-30px 30px 30px black);
     animation: none;
   }
   
