@@ -1,9 +1,13 @@
 import MusicPlayer from "./MusicPlayer";
+import headphoneProximity$ from "../headphones";
 
 const welcome = new MusicPlayer([
     "src/music/Brewing-Potions_Rafael-Krux.mp3",
     "src/music/HippetyHop.mp3",
 ], .5);
+
+// Adjust welcome volume relative to headphones
+headphoneProximity$.subscribe(proximity => welcome.volume(Math.pow(proximity,3)));
 
 const story = new MusicPlayer([
     "src/music/One-Step-Closer_Rafael-Krux.mp3",
@@ -23,8 +27,11 @@ const eery = new MusicPlayer([
 class Controller {
     constructor() {
         this.songs = { welcome, story, ending, eery }
+        this.mute = false;
+        this.current = "welcome";
     }
     play(name) {
+        this.current = name;
         this.stop();
         this.songs[name].play();
     }
@@ -32,6 +39,15 @@ class Controller {
         Object.keys(this.songs).forEach(song => {
             this.songs[song].stop();
         });
+    }
+    toggleMute() {
+      this.mute = !this.mute;
+      if(this.mute) {
+        this.stop();
+      } else {
+        console.log(this.current);
+        this.play(this.current);
+      }
     }
 }
 

@@ -5,6 +5,7 @@ class MusicPlayer {
         this.music = null;
         this.src = src;
         this.vol = vol;
+        this.volTimeout = null;
     }
 
     lazyLoad() {
@@ -13,8 +14,13 @@ class MusicPlayer {
                 src: this.src,
                 loop: true,
                 volume: this.vol,
-                onfade: function(id) {
-                    console.log("Fire",id);
+                onvolume: function(id) {
+                  clearTimeout(this.volTimeout);
+                  this.volTimeout = setTimeout(()=> {
+                    if(this.volume() === 0) {
+                      this.stop();
+                    }
+                  },1000);
                 }
             });
         }
@@ -22,18 +28,22 @@ class MusicPlayer {
 
     play() {
         this.lazyLoad();
-        console.log(this.music.volume());
-        const curVol = this.music.volume();
-        const vol = this.vol;
-        if(curVol < vol) {
-            this.music.fade(curVol, vol, 5000);
+        if(!this.music.playing()) {
+            this.music.play();
         }
-
-        if(this.music.playing()) {
-            return this.music;
-        }
-
-        return this.music.play();
+        this.fadeIn();
+      
+        return this.music;
+    }
+  
+    fadeIn() {
+      const curVol = this.music.volume();
+      const vol = this.vol;
+      if(curVol < vol) {
+        this.music.fade(curVol, vol, 5000);
+      }
+      
+      return this.music;
     }
 
     volume(vol) {
